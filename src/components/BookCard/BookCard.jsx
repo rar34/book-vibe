@@ -1,4 +1,7 @@
 import PropTypes from 'prop-types'
+import { FaRegStar } from "react-icons/fa6";
+
+
 const Book = ({ book }) => {
     const { image, tags, bookName, author, category, rating } = book;
     return (
@@ -9,9 +12,9 @@ const Book = ({ book }) => {
                 <h2 className="card-title">{bookName}</h2>
                 <p className='text-[#131313CC] my-4 font-medium'>By: {author}</p>
                 <hr />
-                <div  className='font-medium flex justify-between'>
+                <div className='font-medium flex mt-4 justify-between'>
                     <p>{category}</p>
-                    <p> <span>{rating}</span></p>
+                    <p className='flex items-center gap-2'> <span>{rating}</span> <FaRegStar className='text-2xl'></FaRegStar></p>
                 </div>
             </div>
         </div>
