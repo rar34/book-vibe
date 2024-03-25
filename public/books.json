@@ -1,0 +1,98 @@
+[
+    {
+        "bookId": 1,
+        "bookName": "The Dating PlayBook For Man",
+        "author": "Andrew Ferebee",
+        "image": "great_gatsby.jpg",
+        "review": "Listened to the whole book, it is a top notch guide for mostly Men, on how dating, self care, philosophy, masculinity, escalation and deciding relationship. Defining a grounded man, Andrew takes the listener through difference phases and learning that most missed during their education. Give it a try.",
+        "totalPages": 180,
+        "rating": 4.5,
+        "category": "Fiction",
+        "tags": [
+            "Classics",
+            "Romance"
+        ],
+        "publisher": "Scribner",
+        "yearOfPublishing": 1925
+    },
+    {
+        "bookId": 2,
+        "bookName": "Why Do you Hate Money ?",
+        "author": "Joey Percia",
+        "image": "to_kill_mockingbird.jpg",
+        "review": "A very good book on copy for fitness... But not only! Joey Percia's book is a summary of copywriting on fitness market, but not only on that... Same concept can be applied on almost every other market. With his simple and comprehensible style he puts down a sort of Bible on the subject.",
+        "totalPages": 281,
+        "rating": 4.8,
+        "category": "Fiction",
+        "tags": [
+            "Classics",
+            "Coming-of-age"
+        ],
+        "publisher": "J. B. Lippincott & Co.",
+        "yearOfPublishing": 1960
+    },
+    {
+        "bookId": 3,
+        "bookName": "The Hate U Give",
+        "author": "Ange Thomas",
+        "image": "1984.jpg",
+        "review": "Sometimes, a book transcends the typical criteria for a rating or review. It’s not the plot, or prose, or characters that count, but the story itself. The sheer significance of the work negates any need to dwell on the details that tend to make a book what it is",
+        "totalPages": 328,
+        "rating": 4.7,
+        "category": "Fiction",
+        "tags": [
+            "Dystopian",
+            "Political"
+        ],
+        "publisher": "Secker & Warburg",
+        "yearOfPublishing": 1949
+    },
+    {
+        "bookId": 4,
+        "bookName": "A full-color 12 month planning calendar with August 2023 through July 2024 scholarship and award deadlines. Help with organizing and scheduling major activities for your college money search. Deadlines for nearly 100 different scholarship and award sources.",
+        "author": "Marianne Ragins",
+        "image": "pride_prejudice.jpg",
+        "review": "A witty and romantic novel of manners",
+        "totalPages": 279,
+        "rating": 4.6,
+        "category": "Fiction",
+        "tags": [
+            "Classics",
+            "Romance"
+        ],
+        "publisher": "T. Egerton, Whitehall",
+        "yearOfPublishing": 1813
+    },
+    {
+        "bookId": 5,
+        "bookName": "The Annotated Texas Family Code is a project of the Family Law Section of the State Bar of Texas. This redlined edition clearly indicates the changes to the Code from the Eighty-eighth Legislature. Annotations have been added throughout the book. The new edition also includes The Texas Rules of Civil Procedure and Texas Rules of Evidence.",
+        "author": "John J. Sampson",
+        "image": "catcher_in_the_rye.jpg",
+        "review": "A timeless coming-of-age novel with a rebellious protagonist",
+        "totalPages": 224,
+        "rating": 4.4,
+        "category": "Fiction",
+        "tags": [
+            "Coming-of-age",
+            "Contemporary"
+        ],
+        "publisher": "Little, Brown and Company",
+        "yearOfPublishing": 2019
+    },
+    {
+        "bookId": 6,
+        "bookName": "Loving Jesus More",
+        "author": "Philip Ryken",
+        "image": "hunger_games.jpg",
+        "review": "I like this short book. I struggle with the emotional side of loving Jesus and what this means in practice. Ryken explains that our love for Jesus is motivated by His love for us. He explores how this is worked out in our obedience to His commands. He also examines why some of us find the concept difficult primarily dealing with the fact that none of us have actually met Jesus in person and therefore we find it difficult to love someone we haven't seen.",
+        "totalPages": 374,
+        "rating": 4.3,
+        "category": "Fiction",
+        "tags": [
+            "Dystopian",
+            "Young Adult"
+        ],
+        "publisher": "Scholastic Press",
+        "yearOfPublishing": 2008
+    }
+]
