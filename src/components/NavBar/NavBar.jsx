@@ -14,7 +14,7 @@ const NavBar = () => {
                         <li><NavLink to="/pages-to-read">Pages to Read</NavLink></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-3xl font-bold">Book Vibe</a>
+                <a className="btn btn-ghost text-base lg:text-3xl font-bold">Book Vibe</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -24,8 +24,8 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn bg-[#23BE0A] text-white text-[18px] font-semibold">Sign In</a>
-                <a className="btn bg-[#59C6D2] ml-4 text-white text-[18px] font-semibold">Sign Up</a>
+                <a className="lg:px-7 cursor-pointer p-2 lg:py-4 rounded-lg bg-[#23BE0A] text-white lg:text-[18px] lg:font-semibold">Sign In</a>
+                <a className="lg:px-7 cursor-pointer p-2 lg:py-4 rounded-lg bg-[#59C6D2] text-white lg:text-[18px] lg:font-semibold ml-1 lg:ml-4">Sign Up</a>
             </div>
         </div>
     );
