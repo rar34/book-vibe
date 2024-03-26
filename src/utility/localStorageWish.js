@@ -7,11 +7,11 @@ const getStoredWishlist = () => {
 }
 
 const saveWishList = (id) => {
-    const storedJobApplications = getStoredWishlist();
-    const exists = storedJobApplications.find(jobId => jobId === id);
+    const storedWishlist = getStoredWishlist();
+    const exists = storedWishlist.find(jobId => jobId === id);
     if (!exists) {
-        storedJobApplications.push(id);
-        localStorage.setItem('wishlist', JSON.stringify(storedJobApplications));
+        storedWishlist.push(id);
+        localStorage.setItem('wishlist', JSON.stringify(storedWishlist));
     }
 
 }

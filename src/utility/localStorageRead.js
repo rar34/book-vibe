@@ -7,11 +7,11 @@ const getStoredBook = () => {
 }
 
 const saveBooks = (id) => {
-    const storedJobApplications = getStoredBook();
-    const exists = storedJobApplications.find(jobId => jobId === id);
+    const storedBooks = getStoredBook();
+    const exists = storedBooks.find(jobId => jobId === id);
     if (!exists) {
-        storedJobApplications.push(id);
-        localStorage.setItem('read', JSON.stringify(storedJobApplications));
+        storedBooks.push(id);
+        localStorage.setItem('read', JSON.stringify(storedBooks));
     }
 
 }
