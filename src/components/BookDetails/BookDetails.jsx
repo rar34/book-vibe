@@ -25,12 +25,12 @@ const BookDetails = () => {
 
     const handleReadBtn = (id) => {
         saveBooks(id);
-        toast("Added this book to the reading tab")
+        // toast("Added this book to the reading tab")
 
     }
     const handleWishlistBtn = (id) => {
         saveWishList(id);
-        toast("Added this book to the reading tab")
+        // toast("Added this book to the reading tab")
 
     }
 

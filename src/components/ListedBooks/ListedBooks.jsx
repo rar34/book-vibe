@@ -1,13 +1,14 @@
 import { SlArrowDown } from "react-icons/sl";
 import { NavLink } from "react-router-dom";
 import useBooksData from "../Hooks/useBooksData";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getStoredBook } from "../../utility/localStorageRead";
 
 
 const ListedBooks = () => {
 
-    const {books} = useBooksData();
+    const { books } = useBooksData();
+    const [bookList, setBookList] = useState([]);
     // console.log(books);
 
     useEffect(() => {
@@ -16,14 +17,15 @@ const ListedBooks = () => {
         if (books.length > 0) {
             // const bookStored = books.filter(book => storedBooks.includes(book.bookId))
             const storedBook = [];
-            for ( const id of storedBooks){
+            for (const id of storedBooks) {
                 const book = books.find(book => book.bookId === id);
-                if(book){
+                if (book) {
                     storedBook.push(book);
                 }
             }
 
-            console.log(storedBook)
+            setBookList(storedBook);
+            console.log(bookList)
         }
     }, [books?.length]);
 
