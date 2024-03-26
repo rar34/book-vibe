@@ -12,15 +12,19 @@ const NavBar = () => {
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/listed-books">Listed Books</NavLink></li>
                         <li><NavLink to="/pages-to-read">Pages to Read</NavLink></li>
+                        <li><NavLink className="text-[#131313CC]" to="/about">About</NavLink></li>
+                        <li><NavLink className="text-[#131313CC]" to="/contact">Contact Us</NavLink></li>
                     </ul>
                 </div>
                 <a className="btn btn-ghost text-base lg:text-3xl font-bold">Book Vibe</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li className="text-xl font-semibold"><NavLink className="text-[#131313CC] hover:text-[#23BE0A]" to="/">Home</NavLink></li>
-                    <li className="text-xl font-semibold"><NavLink className="text-[#131313CC] hover:text-[#23BE0A]" to="/listed-books">Listed Books</NavLink></li>
-                    <li className="text-xl font-semibold"><NavLink className="text-[#131313CC] hover:text-[#23BE0A]" to="/pages-to-read">Pages to Read</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/">Home</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/listed-books">Listed Books</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/pages-to-read">Pages to Read</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/about">About</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/contact">Contact Us</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">

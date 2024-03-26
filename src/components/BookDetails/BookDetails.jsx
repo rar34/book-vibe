@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useBooksData from "../Hooks/useBooksData";
 import { saveBooks } from "../../utility/localStorageRead";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { saveWishList } from "../../utility/localStorageWish";
 
