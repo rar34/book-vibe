@@ -31,14 +31,22 @@ const getStoredWishlist = () => {
 
 const saveWishList = (id) => {
     const storedWishlist = getStoredWishlist();
-    const exists = storedWishlist.find(wishBookId => wishBookId === id);
-    if (!exists) {
+    const storedBooks = getStoredBook();
+    const exists1 = storedWishlist.find(wishBookId => wishBookId === id);
+    const exists2 = storedBooks.find(bookId => bookId === id);
+    if (!exists1 && !exists2) {
         storedWishlist.push(id);
         toast("added successfully")
         localStorage.setItem('wishlist', JSON.stringify(storedWishlist));
-    }else{
+    }
+    // if () {
+    //     storedWishlist.push(id);
+    //     toast("added successfully")
+    //     localStorage.setItem('wishlist', JSON.stringify(storedWishlist));
+    // }
+    else{
         toast("Book is already exist")
     }
 }
 
-export { getStoredBook, saveBooks , getStoredWishlist, saveWishList}
+export { getStoredBook, saveBooks , getStoredWishlist,saveWishList}

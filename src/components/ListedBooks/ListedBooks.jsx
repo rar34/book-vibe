@@ -1,4 +1,3 @@
-import { SlArrowDown } from "react-icons/sl";
 import 'react-tabs/style/react-tabs.css';
 import useBooksData from "../Hooks/useBooksData";
 import { useEffect, useState } from "react";
@@ -13,6 +12,9 @@ const ListedBooks = () => {
     const { books } = useBooksData();
     const [bookList, setBookList] = useState([]);
     const [wishList, setWishList] = useState([]);
+    const [sortBy, setSortBy] = useState(null);
+
+
 
     useEffect(() => {
         const storedBooks = getStoredBook();
@@ -48,9 +50,24 @@ const ListedBooks = () => {
     }, [books?.length]);
 
 
-
-
-
+    const handleSortChange = (e) => {
+        setSortBy(e.target.value);
+        let sortedBooks = [...bookList];
+        switch (e.target.value) {
+            case 'rating':
+                sortedBooks.sort((a, b) => b.rating - a.rating);
+                break;
+            case 'pages':
+                sortedBooks.sort((a, b) => b.totalPages - a.totalPages);
+                break;
+            case 'publishYear':
+                sortedBooks.sort((a, b) => b.yearOfPublishing - a.yearOfPublishing); // Sort from most recent year to oldest
+                break;
+            default:
+                break;
+        }
+        setBookList(sortedBooks);
+    };
 
 
     return (
@@ -58,20 +75,14 @@ const ListedBooks = () => {
             <div>
                 <h2 className="text-3xl font-bold text-center p-8 bg-base-200 my-9 rounded-2xl">Books</h2>
                 <div className="dropdown dropdown-bottom flex justify-center">
-                    <div tabIndex={0} role="button" className="btn m-1 bg-[#23BE0A] text-xl font-semibold text-white">Sort By <SlArrowDown />
-                    </div>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Rating</a></li>
-                        <li><a>Number of Pages</a></li>
-                        <li><a>Publish Year</a></li>
-                    </ul>
+                    <select value={sortBy} onChange={handleSortChange} className="btn m-1 bg-[#23BE0A] text-xl font-semibold text-white">
+                        <option value="">Sort By</option>
+                        <option value="rating">Rating</option>
+                        <option value="pages">Number of Pages</option>
+                        <option value="publishYear">Publish Year</option>
+                    </select>
                 </div>
             </div>
-            {/* <div role="tablist" className="tabs tabs-lifted tabs-lg">
-                <Link onClick={() => setTabIndex(0)} to={'read-book'} role="tab" className={`tab ${tabIndex === 0 ? 'tab-active' : ''}`}>Read Books</Link>
-                <Link onClick={() => setTabIndex(1)} to={`wishlist`} role="tab" className={`tab ${tabIndex === 1 ? 'tab-active' : ''}`}>Wishlist Books</Link>
-
-            </div> */}
             <div>
                 <Tabs>
                     <TabList>
@@ -91,8 +102,6 @@ const ListedBooks = () => {
                     </TabPanel>
                 </Tabs>
             </div>
-
-            
         </div>
     );
 };

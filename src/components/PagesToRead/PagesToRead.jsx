@@ -1,6 +1,8 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
-import useBooksData from '../Hooks/useBooksData';
 import PropTypes from 'prop-types'
+import { getStoredBook } from '../../utility/localStorageRead';
+import { useEffect, useState } from 'react';
+import useBooksData from '../Hooks/useBooksData';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -21,14 +23,32 @@ const TriangleBar = (props) => {
 
 
 const PagesToRead = () => {
-    const { books } = useBooksData();
-    console.log(books)
+    const {books} = useBooksData();
+    const [bookList, setBookList] = useState([]);
+    console.log(bookList)
+
+    useEffect(() => {
+        const storedBooks = getStoredBook();
+        if (books.length > 0) {
+            const storedBook = [];
+            for (const id of storedBooks) {
+                const book = books.find(book => book.bookId === id);
+                if (book) {
+                    storedBook.push(book);
+                }
+            }
+
+            setBookList(storedBook);
+
+        }
+    }, [books?.length]);
+
     return (
         <div className='flex justify-center mt-14'>
             <BarChart
                 width={1200}
                 height={500}
-                data={books}
+                data={bookList}
                 margin={{
                     top: 20,
                     right: 30,
@@ -40,7 +60,7 @@ const PagesToRead = () => {
                 <XAxis dataKey="bookName" />
                 <YAxis />
                 <Bar dataKey="totalPages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                    {books?.map((entry, index) => (
+                    {bookList?.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={colors[index % 20]} />
                     ))}
                 </Bar>

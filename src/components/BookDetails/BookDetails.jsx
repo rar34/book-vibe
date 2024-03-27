@@ -40,12 +40,12 @@ const BookDetails = () => {
                 <img src={image} className="w-full lg:h-[630px] rounded-lg  bg-base-200 p-6 lg:p-16" />
                 <div>
                     <h1 className="text-4xl playfair font-bold">{bookName}</h1>
-                    <p className='text-[#131313CC] my-4 font-medium'>By: {author}</p>
+                    <p className='text-[#131313CC] my-4 font-semibold'>By: {author}</p>
                     <hr />
                     <p className="my-3 font-medium">{category}</p>
                     <hr />
-                    <p className="py-6">{review}</p>
-                    <p className="flex gap-4 font-bold">Tags: {
+                    <p className="py-6"><span className="font-semibold">Review:</span> {review}</p>
+                    <p className="flex gap-4 items-center font-bold">Tags: {
                         tags?.map((tag, idx) => <span className="text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-3xl" key={idx}>#{tag}</span>)
                     }</p>
                     <hr className="my-6" />
