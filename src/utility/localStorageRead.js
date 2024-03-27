@@ -1,8 +1,6 @@
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 const getStoredBook = () => {
     const storedJobApplication = localStorage.getItem('read');
     if (storedJobApplication) {
@@ -21,9 +19,7 @@ const saveBooks = (id) => {
     }else{
         toast("Book is already exist")
     }
-
 }
-
 
 const getStoredWishlist = () => {
     const storedJobApplication = localStorage.getItem('wishlist');
@@ -43,9 +39,6 @@ const saveWishList = (id) => {
     }else{
         toast("Book is already exist")
     }
-
 }
-
-
 
 export { getStoredBook, saveBooks , getStoredWishlist, saveWishList}
