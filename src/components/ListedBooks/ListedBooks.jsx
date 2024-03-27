@@ -1,19 +1,24 @@
 import { SlArrowDown } from "react-icons/sl";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useBooksData from "../Hooks/useBooksData";
 import { useEffect, useState } from "react";
 import { getStoredBook } from "../../utility/localStorageRead";
+import ReadBooks from "./ReadBooks";
 
 
 const ListedBooks = () => {
 
     const { books } = useBooksData();
     const [bookList, setBookList] = useState([]);
+
+    const [tabIndex, setTabIndex] = useState(0);
+
+    console.log(bookList)
     // console.log(books);
 
     useEffect(() => {
         const storedBooks = getStoredBook();
-        console.log(storedBooks);
+        // console.log(storedBooks);
         if (books.length > 0) {
             // const bookStored = books.filter(book => storedBooks.includes(book.bookId))
             const storedBook = [];
@@ -25,9 +30,11 @@ const ListedBooks = () => {
             }
 
             setBookList(storedBook);
-            console.log(bookList)
+            
         }
     }, [books?.length]);
+
+
 
     return (
         <div>
@@ -44,10 +51,15 @@ const ListedBooks = () => {
                 </div>
             </div>
             <div role="tablist" className="tabs tabs-lifted tabs-lg">
-                <NavLink role="tab" className="tab tab-active">Read Books</NavLink>
-                <NavLink role="tab" className="tab">Wishlist Books</NavLink>
+                <Link onClick={()=> setTabIndex(0)} to={''} role="tab" className={`tab ${tabIndex === 0 ? 'tab-active' : ''}`}>Read Books</Link>
+                <Link onClick={()=> setTabIndex(1)} to={`wishlist`} role="tab" className={`tab ${tabIndex === 1 ? 'tab-active' : ''}`}>Wishlist Books</Link>
                 <a role="tab" className="tab"></a>
                 <a role="tab" className="tab"></a>
+            </div>
+            <div className="mb-10">
+                {
+                    bookList?.map(book => <ReadBooks key={book.bookId} bookLists={book}></ReadBooks>)
+                }
             </div>
         </div>
     );

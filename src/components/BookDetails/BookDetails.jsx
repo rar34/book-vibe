@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useBooksData from "../Hooks/useBooksData";
-import { saveBooks } from "../../utility/localStorageRead";
+import { saveBooks, saveWishList } from "../../utility/localStorageRead";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { saveWishList } from "../../utility/localStorageWish";
-
 
 
 const BookDetails = () => {
@@ -47,7 +45,6 @@ const BookDetails = () => {
                     <p className="my-3 font-medium">{category}</p>
                     <hr />
                     <p className="py-6">{review}</p>
-                    {/* <p> Tags: {tags?.length  }</p> */}
                     <p className="flex gap-4 font-bold">Tags: {
                         tags?.map((tag, idx) => <span className="text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-3xl" key={idx}>#{tag}</span>)
                     }</p>

@@ -13,7 +13,7 @@ const getStoredBook = () => {
 
 const saveBooks = (id) => {
     const storedBooks = getStoredBook();
-    const exists = storedBooks.find(jobId => jobId === id);
+    const exists = storedBooks.find(bookId => bookId === id);
     if (!exists) {
         storedBooks.push(id);
         toast("added successfully")
@@ -23,5 +23,29 @@ const saveBooks = (id) => {
     }
 
 }
-export { getStoredBook, saveBooks }
-{/* <ToastContainer></ToastContainer> */}
+
+
+const getStoredWishlist = () => {
+    const storedJobApplication = localStorage.getItem('wishlist');
+    if (storedJobApplication) {
+        return JSON.parse(storedJobApplication);
+    }
+    return [];
+}
+
+const saveWishList = (id) => {
+    const storedWishlist = getStoredWishlist();
+    const exists = storedWishlist.find(wishBookId => wishBookId === id);
+    if (!exists) {
+        storedWishlist.push(id);
+        toast("added successfully")
+        localStorage.setItem('wishlist', JSON.stringify(storedWishlist));
+    }else{
+        toast("Book is already exist")
+    }
+
+}
+
+
+
+export { getStoredBook, saveBooks , getStoredWishlist, saveWishList}
