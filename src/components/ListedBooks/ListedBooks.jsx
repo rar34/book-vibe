@@ -1,26 +1,22 @@
 import { SlArrowDown } from "react-icons/sl";
-import { Link } from "react-router-dom";
+import 'react-tabs/style/react-tabs.css';
 import useBooksData from "../Hooks/useBooksData";
 import { useEffect, useState } from "react";
-import { getStoredBook } from "../../utility/localStorageRead";
+import { getStoredBook, getStoredWishlist } from "../../utility/localStorageRead";
 import ReadBooks from "./ReadBooks";
+import WishlistBooks from "./WishlistBooks";
+import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 
 const ListedBooks = () => {
 
     const { books } = useBooksData();
     const [bookList, setBookList] = useState([]);
-
-    const [tabIndex, setTabIndex] = useState(0);
-
-    console.log(bookList)
-    // console.log(books);
+    const [wishList, setWishList] = useState([]);
 
     useEffect(() => {
         const storedBooks = getStoredBook();
-        // console.log(storedBooks);
         if (books.length > 0) {
-            // const bookStored = books.filter(book => storedBooks.includes(book.bookId))
             const storedBook = [];
             for (const id of storedBooks) {
                 const book = books.find(book => book.bookId === id);
@@ -30,9 +26,30 @@ const ListedBooks = () => {
             }
 
             setBookList(storedBook);
-            
+
         }
     }, [books?.length]);
+
+    useEffect(() => {
+        const storedWishLists = getStoredWishlist();
+        // console.log(storedBooks);
+        if (books.length > 0) {
+            const storedWishList = [];
+            for (const id of storedWishLists) {
+                const wish = books.find(wish => wish.bookId === id);
+                if (wish) {
+                    storedWishList.push(wish);
+                }
+            }
+
+            setWishList(storedWishList);
+
+        }
+    }, [books?.length]);
+
+
+
+
 
 
 
@@ -50,17 +67,32 @@ const ListedBooks = () => {
                     </ul>
                 </div>
             </div>
-            <div role="tablist" className="tabs tabs-lifted tabs-lg">
-                <Link onClick={()=> setTabIndex(0)} to={''} role="tab" className={`tab ${tabIndex === 0 ? 'tab-active' : ''}`}>Read Books</Link>
-                <Link onClick={()=> setTabIndex(1)} to={`wishlist`} role="tab" className={`tab ${tabIndex === 1 ? 'tab-active' : ''}`}>Wishlist Books</Link>
-                <a role="tab" className="tab"></a>
-                <a role="tab" className="tab"></a>
+            {/* <div role="tablist" className="tabs tabs-lifted tabs-lg">
+                <Link onClick={() => setTabIndex(0)} to={'read-book'} role="tab" className={`tab ${tabIndex === 0 ? 'tab-active' : ''}`}>Read Books</Link>
+                <Link onClick={() => setTabIndex(1)} to={`wishlist`} role="tab" className={`tab ${tabIndex === 1 ? 'tab-active' : ''}`}>Wishlist Books</Link>
+
+            </div> */}
+            <div>
+                <Tabs>
+                    <TabList>
+                        <Tab>Read Books</Tab>
+                        <Tab>Wishlist Books</Tab>
+                    </TabList>
+
+                    <TabPanel>
+                        {
+                            bookList?.map(book => <ReadBooks key={book.bookId} bookLists={book}></ReadBooks>)
+                        }
+                    </TabPanel>
+                    <TabPanel>
+                        {
+                            wishList?.map(wish => <WishlistBooks key={wish.bookId} wish={wish}></WishlistBooks>)
+                        }
+                    </TabPanel>
+                </Tabs>
             </div>
-            <div className="mb-10">
-                {
-                    bookList?.map(book => <ReadBooks key={book.bookId} bookLists={book}></ReadBooks>)
-                }
-            </div>
+
+            
         </div>
     );
 };

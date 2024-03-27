@@ -33,7 +33,7 @@ const BookDetails = () => {
     }
 
     const { bookId, image, bookName, author, category, review, tags, totalPages, yearOfPublishing, publisher, rating } = singleBook || {};
-    console.log(tags)
+    // console.log(tags)
     return (
         <div className="hero mt-10">
             <div className="hero-content gap-10 flex-col lg:flex-row">

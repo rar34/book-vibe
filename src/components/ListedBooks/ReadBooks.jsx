@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types'
 
 const ReadBooks = ({ bookLists }) => {
-    console.log(bookLists)
+    // console.log(bookLists)
 
     const { image, bookName, author, category, tags, totalPages, publisher, yearOfPublishing, rating } = bookLists;
 
