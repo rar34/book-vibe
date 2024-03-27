@@ -1,4 +1,4 @@
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types'
 import { getStoredBook } from '../../utility/localStorageRead';
 import { useEffect, useState } from 'react';
@@ -45,6 +45,8 @@ const PagesToRead = () => {
 
     return (
         <div className='flex justify-center mt-14'>
+            <ResponsiveContainer width="100%" height={400}>
+
             <BarChart
                 width={1200}
                 height={500}
@@ -65,6 +67,7 @@ const PagesToRead = () => {
                     ))}
                 </Bar>
             </BarChart>
+            </ResponsiveContainer>
         </div>
     );
 };
