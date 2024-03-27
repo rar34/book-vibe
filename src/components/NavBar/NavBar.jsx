@@ -20,11 +20,26 @@ const NavBar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/">Home</NavLink></li>
-                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/listed-books">Listed Books</NavLink></li>
-                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/pages-to-read">Pages to Read</NavLink></li>
-                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/about">About</NavLink></li>
-                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/contact">Contact Us</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/" style={({ isActive }) => ({
+                        color: isActive ? 'white' : '#545e6f',
+                        background: isActive ? '#23BE0A' : '',
+                    })}>Home</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/listed-books" style={({ isActive }) => ({
+                        color: isActive ? 'white' : '#545e6f',
+                        background: isActive ? '#23BE0A' : '',
+                    })}>Listed Books</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/pages-to-read" style={({ isActive }) => ({
+                        color: isActive ? 'white' : '#545e6f',
+                        background: isActive ? '#23BE0A' : '',
+                    })}>Pages to Read</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/about" style={({ isActive }) => ({
+                        color: isActive ? 'white' : '#545e6f',
+                        background: isActive ? '#23BE0A' : '',
+                    })}>About</NavLink></li>
+                    <li className="text-xl font-medium"><NavLink className="text-[#131313CC]" to="/contact" style={({ isActive }) => ({
+                        color: isActive ? 'white' : '#545e6f',
+                        background: isActive ? '#23BE0A' : '',
+                    })}>Contact Us</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
